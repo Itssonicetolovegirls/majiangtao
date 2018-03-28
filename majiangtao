@@ -1,0 +1,76 @@
+package renwu1;
+
+import java.util.Scanner;
+
+public class qqq {
+public static void main(String[] args) {
+	System.out.println("设定人数");
+    Scanner w = new Scanner(System.in);
+	int  n = w.nextInt();
+	System.out.println("设定k（十以内）");
+	Scanner q = new Scanner(System.in);
+	int  k = q.nextInt();
+    int x = www.shanchu(n,k);
+	System.out.println("第"+x+"个孩子");
+}
+}
+class www{
+	
+	
+public static  int shanchu(int n,int k){
+	int num1=1,num3=1;
+	int [] a = new int [n+1];
+	a[n]=0;
+	int [] b = new int [n+1];
+	//存放小孩
+	for(int i=0;i<n;i++)
+	{
+		a[i]=num1;
+		num1++;
+	}
+	for(int m=0;m<n;m++) {
+		int j=0;
+		
+	//找出并记录一次报数中被淘汰的小孩位置
+	for(int i=0;i<a.length-1;i++) {
+		if(a[i]==0) {
+			break;
+		}
+		System.out.println("我是"+a[i]+"号是"+num3);
+		
+		if(num3%k==0) {
+			b[j]=i;
+			j++;
+			System.out.println(a[i]+"号淘汰");
+			num3++;
+			continue;
+		}
+		else if(num3%10==k) {
+			b[j]=i;
+			j++;
+			System.out.println(a[i]+"号淘汰");
+			num3++;
+			continue; 
+		}
+		num3++;
+	}
+	//淘汰这一次报数中被记录的小孩
+	for(int k1=0;k1<j;k1++)
+	{  int num2=1+k1;
+		for(int l=b[k1];l<a.length-1;l++)
+		{
+			a[l]=a[l+1];
+		}
+		b[k1+1]=b[k1+1]-num2;
+		
+		
+	}
+	//当只剩下一个小孩的时候跳出循环
+	if(a[1]==0)
+		break;
+	
+	
+	}
+	return a[0];
+}
+}
